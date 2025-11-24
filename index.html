@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Number Guessing Game</h1>
+      <p class="subtitle">Guess the secret number before you run out of attempts.</p>
+    </header>
+
+    <section class="controls">
+      <div class="control-group">
+        <label for="difficulty"><strong>Difficulty:</strong></label>
+        <select id="difficulty" aria-label="Difficulty">
+          <option value="easy">Easy (1–50)</option>
+          <option value="medium" selected>Medium (1–100)</option>
+          <option value="hard">Hard (1–500)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="attempts"><strong>Attempts:</strong></label>
+        <select id="attempts" aria-label="Attempts">
+          <option value="10">10</option>
+          <option value="7" selected>7</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="soundToggle"><strong>Sound:</strong></label>
+        <input type="checkbox" id="soundToggle" checked aria-label="Enable sound" />
+      </div>
+
+      <button id="newGameBtn" class="btn">New Game</button>
+    </section>
+
+    <section class="game">
+      <form id="guessForm" autocomplete="off">
+        <label for="guessInput" class="sr-only">Enter your guess</label>
+        <input
+          id="guessInput"
+          class="input"
+          type="number"
+          inputmode="numeric"
+          placeholder="Enter your guess"
+          required
+        />
+        <button type="submit" class="btn primary">Guess</button>
+      </form>
+
+      <div class="status">
+        <p id="rangeText">Range: 1–100</p>
+        <p id="attemptsText">Attempts left: 7</p>
+        <p id="hintText" class="hint">Make a guess to start!</p>
+      </div>
+    </section>
+
+    <section class="scoreboard">
+      <div class="score">
+        <span><strong>Streak:</strong></span>
+        <span id="streak">0</span>
+      </div>
+      <div class="score">
+        <span><strong>Best streak:</strong></span>
+        <span id="bestStreak">0</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Press Enter to submit. Press R to restart. MIT License.</p>
+    </footer>
+  </main>
+
+  <audio id="successSfx" src="./sounds/success.mp3" preload="auto"></audio>
+  <audio id="errorSfx" src="./sounds/error.mp3" preload="auto"></audio>
+
+  <script src="./main.js"></script>
+</body>
+</html>
